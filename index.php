@@ -3,7 +3,7 @@
 <form action="index.php">
 <div class="form-group">
   <label for="comment">Paste Data from excel:</label>
-  <textarea class="form-control" rows="20" id="data"></textarea>
+  <textarea class="form-control" rows="20" name="data"></textarea>
   <input type="submit" value="Submit">
 </div>
 </form>
