@@ -9,12 +9,19 @@
 </form>
 <?php
 if(!empty($_POST)){
-  $rows = array_map('str_getcsv', $_POST['data']);
-$header = array_shift($rows);
-$csv = array();
-foreach ($rows as $row) {
-   $csv[] = array_combine($header, $row);
-}
-print_r($csv);
+$a = str_replace( array( "\r\n" , "\t" ) , array( "[NEW*LINE]" , "[tAbul*Ator]" ) , $_POST['data'] ); 
+
+print "<table border=\"1\">"; 
+foreach( explode( "[NEW*LINE]" , $a ) AS $lines ) { 
+    print "<tr>"; 
+    foreach( explode( "[tAbul*Ator]" , $lines ) AS $li ) { 
+        print "<td>"; 
+        print $li ; 
+        print "</td>"; 
+    } 
+
+    print "</tr>"; 
+} 
+print "</table>"; 
 }
 ?>
